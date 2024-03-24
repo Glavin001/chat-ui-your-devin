@@ -28,4 +28,16 @@ export default defineConfig({
 	optimizeDeps: {
 		include: ["browser-image-resizer", "uuid"],
 	},
-});
+	server: {
+	  cors: {
+		origin: '*', // Allow all origins
+		methods: ['GET', 'POST'], // You can adjust the methods as per your requirement
+		allowedHeaders: ['Content-Type'], // Adjust headers as per your requirement
+		credentials: true,
+		exposedHeaders: ['*'], // Expose all headers
+	  },
+	  headers: {
+		'Content-Security-Policy': "frame-ancestors *", // Allow embedding from any source
+	  }
+	}
+  });
